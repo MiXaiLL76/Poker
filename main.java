@@ -6,7 +6,7 @@ class Poker {
     
     public static void main(String[] args){
         final Random random = new Random();
-        int max = 10;
+        int max = 5;
         
         System.out.println("Poker");
         System.out.println("Input: ");
@@ -17,19 +17,22 @@ class Poker {
         /*Console input*/
         List<Integer> pd = new ArrayList<Integer>();
         for(int i=0;i<5;i++){
-            pd.add(random.nextInt(max));            
+            pd.add(random.nextInt(max));  
+                      
             System.out.print(pd.get(i)+" "); 
         }        
         System.out.println();
-        
-        for(int i=0;i<5;i++){
+
+        for(int i=0;i<pd.size();i++){
             int count = 1;
-            for(int w=i+1;w<5;w++){
-                if(pd.get(i) == pd.get(w)){
-                    count++;pd.                 
+            for(int w=i;w<pd.size()-1;w++){
+                if(pd.get(i) == pd.get(w+1)){
+                    count++;  
+                    pd.remove(w);w--;                                               
                 }
-            }
-           System.out.println();
+            }        
+           System.out.println(pd.get(i)+" - count = "+count);
         }
+
     }
 }

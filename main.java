@@ -18,6 +18,7 @@ class Poker {
         }        
         System.out.println();
 
+        int one_count = 0;
         List<Integer> weight = new ArrayList<Integer>();//array of numbers weight
         for(int i=0;i<pd.size();i++){
             int count = 1;//number of identical numbers
@@ -28,15 +29,11 @@ class Poker {
                 }
             }        
            weight.add(count);
+           if(weight.get(weight.size()-1) == 1)one_count++;
         }
 
         System.out.println("Output: ");
-
-        int one_count = 0;
-        for(int i=0;i<weight.size();i++){
-            if(weight.get(i) == 1)one_count++;//number of '1' in the array
-        }
-
+        
         String return_value = "";
         switch(one_count)
         {
